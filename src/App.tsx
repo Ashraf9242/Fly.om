@@ -96,7 +96,7 @@ export default function App() {
             <button className="btn-theme" onClick={() => setTheme(th => th === 'dark' ? 'light' : 'dark')} aria-label="Toggle theme">
               <i className={theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'} />
             </button>
-            <a href="#pricing" className="btn-primary">{t.nav.book}</a>
+            <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">{t.nav.book}</a>
             <button
               className={`navbar__hamburger ${menuOpen ? 'open' : ''}`}
               onClick={() => setMenuOpen(o => !o)}
@@ -113,7 +113,7 @@ export default function App() {
         {navLinks.map(l => (
           <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}>{l.label}</a>
         ))}
-        <a href="#pricing" className="btn-primary" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>
+        <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ textAlign: 'center' }} onClick={() => setMenuOpen(false)}>
           {t.nav.book}
         </a>
         <div className="mobile-menu__controls">
