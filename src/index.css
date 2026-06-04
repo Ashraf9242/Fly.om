@@ -374,6 +374,17 @@ button { cursor: pointer; font-family: inherit; touch-action: manipulation; }
   font-size: clamp(1rem, 2.5vw, 1.2rem); line-height: 1.65;
   max-width: 560px; margin-bottom: 2rem;
 }
+.hero__highlights {
+  list-style: none;
+  display: flex; flex-wrap: wrap; gap: 0.55rem 1.1rem;
+  margin-bottom: 1.75rem;
+}
+.hero__highlights li {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.88rem; font-weight: 500;
+}
+[dir="rtl"] .hero__highlights { justify-content: flex-end; }
+
 .hero__ctas { display: flex; flex-wrap: wrap; gap: 0.9rem; }
 [dir="rtl"] .hero__ctas { justify-content: flex-end; }
 
@@ -647,6 +658,10 @@ button { cursor: pointer; font-family: inherit; touch-action: manipulation; }
 .form__input:focus, .form__textarea:focus { border-color: var(--gold); }
 .form__textarea { resize: vertical; min-height: 100px; }
 .form__input::placeholder, .form__textarea::placeholder { color: var(--text-muted); opacity: 0.6; }
+.form__confirmation {
+  font-size: 0.82rem; color: var(--gold);
+  margin-bottom: 0.85rem; font-weight: 500;
+}
 
 /* ── Footer ──────────────────────────────────────────── */
 .footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 3rem 0 1.5rem; }

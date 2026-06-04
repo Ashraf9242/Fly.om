@@ -140,12 +140,15 @@ export default function App() {
             {t.hero.line1}<br /><em>{t.hero.line2}</em>
           </h1>
           <p className="hero__sub" data-reveal data-delay="2">{t.hero.sub}</p>
-          <div className="hero__ctas" data-reveal data-delay="3">
+          <ul className="hero__highlights" data-reveal data-delay="3">
+            {t.hero.highlights.map((h, i) => <li key={i}>{h}</li>)}
+          </ul>
+          <div className="hero__ctas" data-reveal data-delay="4">
             <a href={WA_URL} target="_blank" rel="noopener noreferrer" className="btn-hero-primary">
               <i className="fa-brands fa-whatsapp" /> {t.hero.cta1}
             </a>
-            <a href="#contact" className="btn-hero-ghost">
-              <i className="fa-solid fa-envelope" /> {t.hero.cta2}
+            <a href="#services" className="btn-hero-ghost">
+              <i className="fa-solid fa-bolt" /> {t.hero.cta2}
             </a>
           </div>
         </div>
@@ -411,6 +414,7 @@ export default function App() {
           <div className="contact__header">
             <div className="section-label" data-reveal>{t.contact.label}</div>
             <h2 className="section-title" data-reveal data-delay="1">{t.contact.title}</h2>
+            <p className="section-desc" style={{ marginTop: '0.75rem' }} data-reveal data-delay="2">{t.contact.subtitle}</p>
           </div>
 
           <div className="contact__grid">
@@ -458,7 +462,7 @@ export default function App() {
                 <label className="form__label">{t.contact.form.name}</label>
                 <input
                   className="form__input" type="text" required
-                  placeholder={t.contact.form.name}
+                  placeholder={t.contact.form.namePlaceholder}
                   value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                 />
               </div>
@@ -466,7 +470,7 @@ export default function App() {
                 <label className="form__label">{t.contact.form.phone}</label>
                 <input
                   className="form__input" type="tel"
-                  placeholder={t.contact.form.phone}
+                  placeholder={t.contact.form.phonePlaceholder}
                   value={form.phone} onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
                 />
               </div>
@@ -481,10 +485,11 @@ export default function App() {
                 <label className="form__label">{t.contact.form.message}</label>
                 <textarea
                   className="form__textarea"
-                  placeholder={t.contact.form.message}
+                  placeholder={t.contact.form.messagePlaceholder}
                   value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
                 />
               </div>
+              <p className="form__confirmation">{t.contact.form.confirmation}</p>
               <button type="submit" className="btn-submit">
                 <i className="fa-brands fa-whatsapp" style={{ marginInlineEnd: '0.5rem' }} />
                 {t.contact.form.send}
