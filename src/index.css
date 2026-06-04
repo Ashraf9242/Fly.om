@@ -692,16 +692,23 @@ button { cursor: pointer; font-family: inherit; touch-action: manipulation; }
   .navbar__hamburger { display: flex; }
 
   .about__grid, .contact__grid { grid-template-columns: 1fr; }
-  .about__visual { order: -1; }
-  .about__img { height: 300px; }
+  .about__visual { order: -1; display: flex; flex-direction: column; }
+  .about__img { height: 340px; }
+
+  /* Badge static at tablet so it never bleeds outside the 1-col layout */
+  .about__img-badge { position: static; margin-top: 1rem; }
+  [dir="rtl"] .about__img-badge { right: auto; left: auto; }
 
   .gallery__grid {
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 200px 200px 200px;
+    grid-template-rows: 220px 220px 220px;
   }
   .gallery__item--tall { grid-row: auto; }
 
   .footer__top { grid-template-columns: 1fr 1fr; }
+
+  /* Pricing: 2 cols on tablet */
+  .packages__grid { grid-template-columns: repeat(2, 1fr); max-width: none; }
 }
 
 /* ≤ 768px — large phone / portrait tablet */
@@ -710,12 +717,10 @@ button { cursor: pointer; font-family: inherit; touch-action: manipulation; }
   .hero__ctas { flex-direction: column; align-items: flex-start; }
   [dir="rtl"] .hero__ctas { align-items: flex-end; }
   .hero__ctas .btn-hero-primary,
-  .hero__ctas .btn-hero-ghost { width: 100%; max-width: 340px; justify-content: center; }
+  .hero__ctas .btn-hero-ghost { width: 100%; max-width: 360px; justify-content: center; }
 
-  /* About badge: make it static so it never bleeds outside the column */
-  .about__visual { display: flex; flex-direction: column; }
-  .about__img-badge { position: static; margin-top: 1rem; }
-  [dir="rtl"] .about__img-badge { right: auto; left: auto; }
+  /* Looser section padding on mid-size phones */
+  .about__img { height: 280px; }
 
   /* Contact map shorter */
   .contact__map { height: 200px; }
@@ -724,16 +729,23 @@ button { cursor: pointer; font-family: inherit; touch-action: manipulation; }
   .form__input, .form__textarea { font-size: 1rem; }
 
   /* FAQ CTA stacks */
-  .faq__cta { flex-direction: column; }
+  .faq__cta { flex-direction: column; align-items: flex-start; }
   [dir="rtl"] .faq__cta { align-items: flex-end; }
   .faq__cta-text { max-width: 100%; }
+
+  /* Pricing footer wraps to column */
+  .pricing__footer { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .pricing__footer-divider { display: none; }
+
+  /* Services single column earlier */
+  .services__grid { grid-template-columns: 1fr; }
 }
 
 /* ≤ 640px — small phone */
 @media (max-width: 640px) {
   /* Gallery */
   .gallery__grid { grid-template-columns: 1fr; grid-template-rows: auto; }
-  .gallery__item { height: 220px; }
+  .gallery__item { height: 230px; }
 
   /* Stats: 2 × 2 */
   .stats__grid { grid-template-columns: repeat(2, 1fr); }
@@ -743,8 +755,14 @@ button { cursor: pointer; font-family: inherit; touch-action: manipulation; }
   .t-card { padding: 1.25rem; }
   .contact__form { padding: 1.5rem; }
 
+  /* Pricing: 1 col on phone */
+  .packages__grid { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+
+  /* Testimonials: 1 col on phone */
+  .testimonials__grid { grid-template-columns: 1fr; }
+
   /* Footer */
-  .footer__top { grid-template-columns: 1fr; }
+  .footer__top { grid-template-columns: 1fr; gap: 2rem; }
   .footer__bottom { flex-direction: column; align-items: flex-start; }
   [dir="rtl"] .footer__bottom { align-items: flex-end; }
 
@@ -752,20 +770,60 @@ button { cursor: pointer; font-family: inherit; touch-action: manipulation; }
   .faq-item__q { padding: 0.9rem 1.1rem; font-size: 0.88rem; }
   .faq-item__a { padding: 0 1.1rem; }
   .fear-meter { max-width: 100%; }
+
+  /* About */
+  .about__img { height: 240px; }
+}
+
+/* ≤ 480px — medium-small phones (most Android midrange, older iPhones) */
+@media (max-width: 480px) {
+  /* Tighten section vertical padding */
+  .about, .services, .pricing, .gallery,
+  .testimonials, .faq, .contact {
+    padding-top: clamp(3rem, 8vw, 5rem);
+    padding-bottom: clamp(3rem, 8vw, 5rem);
+  }
+
+  /* Hero subtitle narrower line length */
+  .hero__sub { font-size: 0.95rem; }
+
+  /* Buttons full width */
+  .hero__ctas .btn-hero-primary,
+  .hero__ctas .btn-hero-ghost { max-width: 100%; }
+
+  /* Section title slightly smaller */
+  .section-title { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+
+  /* Stats smaller number */
+  .stats__n { font-size: 2rem; }
+
+  /* Navbar: ensure logo + icons don't overflow */
+  .navbar__inner { height: 60px; }
+  html { scroll-padding-top: 60px; }
+  .mobile-menu { inset: 60px 0 0; }
+
+  /* pkg-card price smaller */
+  .pkg-card__price { font-size: 2.4rem; }
+
+  /* Contact form padding */
+  .contact__form { padding: 1.25rem; }
+
+  /* Footer */
+  .footer__socials { flex-wrap: wrap; }
 }
 
 /* ≤ 400px — very small phones (iPhone SE, Galaxy A01 etc.) */
 @media (max-width: 400px) {
-  .hero__ctas .btn-hero-primary,
-  .hero__ctas .btn-hero-ghost { max-width: 100%; }
-
-  .stats__n { font-size: 2rem; }
-
   /* Float WA button pulls in from edges */
   .float-wa { width: 50px; height: 50px; font-size: 1.4rem; bottom: 1.25rem; right: 1.25rem; }
   [dir="rtl"] .float-wa { right: auto; left: 1.25rem; }
 
-  .footer__socials { flex-wrap: wrap; }
+  /* Hero title min size */
+  .hero__title { font-size: clamp(2.4rem, 9vw, 3rem); }
+
+  /* Tighter card gaps */
+  .svc-card { padding: 1.25rem; }
+  .t-card { padding: 1rem; }
 }
 
 /* ── Navbar Book Now pulse ───────────────────────── */
