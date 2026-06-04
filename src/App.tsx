@@ -24,7 +24,7 @@ function useScrollReveal() {
 }
 
 export default function App() {
-  const [lang, setLang] = useState<Lang>('en')
+  const [lang, setLang] = useState<Lang>('ar')
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const s = localStorage.getItem('flyom-theme')
     return s === 'light' ? 'light' : 'dark'

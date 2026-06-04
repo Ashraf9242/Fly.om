@@ -687,8 +687,7 @@ button { cursor: pointer; font-family: inherit; touch-action: manipulation; }
 /* ≤ 960px — tablet / hamburger breakpoint */
 @media (max-width: 960px) {
   .navbar__links,
-  .navbar__actions .btn-primary,
-  .navbar__actions .btn-lang { display: none; }
+  .navbar__actions .btn-primary { display: none; }
   .navbar__hamburger { display: flex; }
 
   .about__grid, .contact__grid { grid-template-columns: 1fr; }
@@ -814,6 +813,8 @@ button { cursor: pointer; font-family: inherit; touch-action: manipulation; }
 
 /* ≤ 400px — very small phones (iPhone SE, Galaxy A01 etc.) */
 @media (max-width: 400px) {
+  /* Shrink logo so lang + theme + hamburger all fit */
+  .navbar__logo { font-size: 1.25rem; }
   /* Float WA button pulls in from edges */
   .float-wa { width: 50px; height: 50px; font-size: 1.4rem; bottom: 1.25rem; right: 1.25rem; }
   [dir="rtl"] .float-wa { right: auto; left: 1.25rem; }
