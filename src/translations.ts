@@ -259,7 +259,7 @@ export const T = {
           num: '٠٢', emoji: '🎂', featured: true, featuredLabel: '🎂 باقة مميزة',
           name: 'باقة عيد ميلاد', subtitle: 'Birthday Package',
           price: '50', currency: 'ر.ع.',
-          features: ['مع التصوير والمونتاج', 'تجربة عيد ميلاد خاصة', 'ديكور ثيم مميز'],
+          features: ['مع التصوير والمونتاج', 'تجربة عيد ميلاد خاصة'],
           note: '',
         },
         {
