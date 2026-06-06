@@ -505,8 +505,7 @@ export default function App() {
                 {[
                   { icon: 'fa-brands fa-instagram', href: IG_URL, label: 'Instagram' },
                   { icon: 'fa-brands fa-whatsapp', href: WA_URL, label: 'WhatsApp' },
-                  { icon: 'fa-brands fa-tiktok', href: '#', label: 'TikTok' },
-                  { icon: 'fa-brands fa-youtube', href: '#', label: 'YouTube' },
+                  { icon: 'fa-brands fa-tiktok', href: 'https://www.tiktok.com/@fly_om?_r=1&_t=ZS-96yyk5NfZhK', label: 'TikTok' },
                 ].map(s => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="footer__social" aria-label={s.label}>
                     <i className={s.icon} />
